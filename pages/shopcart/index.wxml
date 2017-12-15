@@ -9,7 +9,7 @@
 
   <block wx:else>
     <view class="list-top">
-      <view class="label">微商城</view>
+      <view class="label">华邦商城</view>
       <view class="edit-btn" hidden="{{!saveHidden}}" bindtap="editTap">编辑</view>
       <view class="edit-btn" hidden="{{saveHidden}}" bindtap="saveTap">完成</view>
     </view>

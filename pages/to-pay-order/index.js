@@ -7,7 +7,8 @@ Page({
     goodsList: [],
     isNeedLogistics: 0, // 是否需要物流信息
     allGoodsPrice: 0,
-    orderType: "",  //  订单类型,默认是购物车，
+    orderType: "",  //  订单类型,默认是购物车
+    addrs: [],
     curAddressData: ''
   },
 
@@ -57,6 +58,7 @@ Page({
           var temp = addrsList[i]
           if (temp.status == 1) {
             that.setData({
+              addrs: addrsList,
               curAddressData: temp
             })
           }
@@ -192,7 +194,7 @@ Page({
 
   addAddress: function () {
     wx.navigateTo({
-      url: "/pages/add-addr/index"
+      url: "/pages/address/index"
     })
   },
   selectAddress: function () {

@@ -67,7 +67,7 @@
         </view>
         <view class="pop-goods-des">
           <view class="pop-goods-title">{{goodsDetail.title}}</view>
-          <view class="pop-goods-price">¥ {{goodsDetail.price * buyNumber}}</view>
+          <view class="pop-goods-price">¥ {{totalPrice}}</view>
         </view>
         <image class="pop-goods-close" src='/images/popup-close.png' bindtap='closePopupTap'></image>
       </view>

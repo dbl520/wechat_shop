@@ -14,6 +14,7 @@ Page({
     hasMoreSelect: false,
     selectSize: "选择：",
     selectSizePrice: 0,
+    totalPrice: 0,
     shopNum: 0,
     hideShopPopup: true,
     buyNumber: 0,
@@ -54,7 +55,8 @@ Page({
 
         that.setData({
           goodsDetail: res.data,
-          selectSizePrice: res.data.price,
+          // selectSizePrice: res.data.price,
+          totalPrice: res.data.price,
           buyNumMax: res.data.stock,
           buyNumber: (res.data.stock > 0) ? 1 : 0
         })
@@ -130,7 +132,8 @@ Page({
       var currentNum = this.data.buyNumber
       currentNum--
       this.setData({
-        buyNumber: currentNum
+        buyNumber: currentNum,
+        totalPrice: (this.data.goodsDetail.price * currentNum).toFixed(2)
       })
     }
   },
@@ -139,7 +142,8 @@ Page({
       var currentNum = this.data.buyNumber
       currentNum++
       this.setData({
-        buyNumber: currentNum
+        buyNumber: currentNum,
+        totalPrice: (this.data.goodsDetail.price * currentNum).toFixed(2)
       })
     }
   },

@@ -69,7 +69,7 @@ Page({
   onAboutTap: function () {
     wx.showModal({
       title: '关于我们',
-      content: '微商城V1.0！',
+      content: '华邦商城V1.0！',
       showCancel: false
     })
   },
@@ -120,7 +120,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '微商城',
+      title: '华邦商城',
       path: '/pages/index/index'
     }
   }
