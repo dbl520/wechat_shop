@@ -1,0 +1,20 @@
+.product {
+  margin-bottom: 40rpx;
+  width: 310rpx;
+}
+.product image {
+  width: 310rpx;
+  height: 380rpx;
+}
+.name {
+  display: block;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+  color: #8b8b8b;
+}
+.price {
+  display: block;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+  color: #333333;
+}

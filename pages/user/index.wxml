@@ -1,0 +1,43 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+    </block>
+  </view>
+
+  <view class='menu'>
+    <view class='menu-item' catchtap='onOrderTap'>
+      <image class='menu-icon' src='/images/icon_order.png'></image>
+      <view class='text'>
+        <text>我的订单</text>
+        <image class='arrow-right' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+    <view class='menu-item' catchtap='onAddrTap'>
+      <image class='menu-icon' src='/images/icon_address.png'></image>
+      <view class='text'>
+        <text>地址管理</text>
+        <image class='arrow-right' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+    <view class='menu-item'>
+      <image class='menu-icon' src='/images/icon_contact.png'></image>
+      <view class='text'>
+        <button open-type="contact" class='contact'>客户服务</button>
+        <image class='arrow-right' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+    <view class='menu-item' catchtap='onAboutTap'>
+      <image class='menu-icon' src='/images/icon_aboutus.png'></image>
+      <view class='text'>
+        <text>关于我们</text>
+        <image class='arrow-right' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- <text class='sup'>江西华邦提供技术支持</text> -->
+</view>

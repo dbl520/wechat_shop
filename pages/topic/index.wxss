@@ -1,0 +1,20 @@
+/* pages/topic/index.wxss */
+@import "../template/product-tpl.wxss";
+
+.product-wrapper {
+  margin-top: 20rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.heading {
+  display: block;
+  text-align: center;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}

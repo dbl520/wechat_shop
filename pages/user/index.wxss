@@ -1,0 +1,90 @@
+/* pages/user/user.wxss */
+page {
+  background-color: #f2f2f2;
+}
+.userinfo {
+  /* position: relative; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;   
+  /* justify-content: center;  */
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  width: 100%;
+  height: 250rpx;
+  background-color: #fff;
+}
+
+/* .head-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 250rpx;
+  z-index: -1;
+} */
+
+.userinfo-avatar {
+  width: 158rpx;
+  height: 158rpx;
+  margin: 20rpx; 
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #333;
+}
+
+.menu {
+  margin-top: 20rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+.menu-icon {
+  margin: 0 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.text {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  padding: 0 20rpx;
+  box-sizing: border-box; 
+  height: 119rpx;
+  font-size: 36rpx;
+  color: #333;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.arrow-right {
+  float: right;
+  /* margin: 22rpx 0 22rpx 0; */
+  width: 24rpx;
+  height: 36rpx;
+}
+
+.sup {
+  position: fixed;
+  bottom: 40rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.contact {
+  flex: 1;
+  padding: 0;
+  color: #333;
+  text-align: left;
+  background-color: transparent;
+}
+.contact::after {
+  /* opacity: 0; */
+  color: #333;
+  border: 0;
+}

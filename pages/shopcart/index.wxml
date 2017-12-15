@@ -1,0 +1,51 @@
+<view class="container">
+  <block wx:if='{{goodsList.length == 0}}'>
+    <view class='noGoodList'>
+      <image class='' src='/images/icon-cart.png'></image>
+      <view class="title-box">购物车空空如也～</view>
+      <view class="to-index-btn" bindtap="toIndexPage">去逛逛</view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="list-top">
+      <view class="label">华邦商城</view>
+      <view class="edit-btn" hidden="{{!saveHidden}}" bindtap="editTap">编辑</view>
+      <view class="edit-btn" hidden="{{saveHidden}}" bindtap="saveTap">完成</view>
+    </view>
+    <view class="goodsList">
+      <view class="a-gooods" wx:for="{{goodsList}}" wx:key="{{index}}">
+        <view class="a-goods-conts" bindtap="selectTap" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.left}}">
+          <image class='check-img' src="{{item.active? '/images/gou-red.png':'/images/gou.png'}}"></image>
+          <view class="goods-info">
+            <view class="img-box">
+              <image src="{{item.goods.pic}}" class="img" />
+            </view>
+            <view class="text-box">
+              <view class="goods-title">{{item.goods.title}}</view>
+              <view class="goods-label"></view>
+              <view class="goods-price">¥ {{item.goods.price * item.goods_num}}</view>
+              <view class="buy-num">
+                <view class="jian-btn {{item.number==1? 'disabled' : ''}}" catchtap="jianBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">-</view>
+                <input type="number" value="{{item.goods_num}}" disabled/>
+                <view class="jia-btn {{item.number==10? 'disabled' : ''}}" catchtap="jiaBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">+</view>
+              </view>
+            </view>
+          </view>
+          <view class="delete-btn" data-index="{{index}}" data-goodsid="{{item.goods_id}}" catchtap="delItem">删除</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="jiesuan-box">
+      <view class="left-price">
+        <view class="all-selected" catchtap="bindAllSelect">
+          <image class='check-img' src="{{allSelect? '/images/gou-red.png':'/images/gou.png'}}"></image>全选
+        </view>
+        <view class="total" hidden="{{noSelect}}">合计：¥ {{totalPrice}}</view>
+      </view>
+      <view class="to-pay-btn {{noSelect?'no-select':''}}" hidden="{{!saveHidden}}" catchtap="toPayOrder">去结算</view>
+      <view class="to-pay-btn {{noSelect?'no-select':''}}" hidden="{{saveHidden}}" catchtap="deleteSelected">删除</view>
+    </view>
+  </block>
+</view>

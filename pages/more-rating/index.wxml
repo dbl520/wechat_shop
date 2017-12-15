@@ -1,0 +1,10 @@
+<!--pages/more-rating/index.wxml-->
+<import src="../template/rating-tpl.wxml" />
+
+<view class='container'>
+  <view class='rating-wrapper'>
+    <block wx:for='{{reputation.data}}' wx:for-item='item' wx:for-index='idx'>
+     <template is='rating' data='{{...item}}' />
+    </block>
+  </view>
+</view>

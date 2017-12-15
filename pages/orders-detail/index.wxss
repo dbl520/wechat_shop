@@ -1,0 +1,160 @@
+/* pages/orders-detail/index.wxss */
+
+.order-time {
+  margin-top: 20rpx;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 2;
+  color: #333;
+  background-color: #fff;
+}
+.order-time text {
+  display: block;
+}
+.goods-wrapper {
+  margin-top: 20rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box; 
+  width: 100%;
+  background-color: #fff;
+}
+.goods-wrapper .heading{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 40rpx 20rpx 0;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #e4e4e4;
+}
+.goods {
+  display: flex;
+  padding: 20rpx 40rpx 20rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #e4e4e4;
+}
+.goods-img {
+  width: 150rpx;
+  height: 150rpx;
+}
+.goods-info {
+  flex: 1;
+  margin-left: 20rpx;
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 1.5;
+  color: #333;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.title text{
+  display: block;
+}
+.goods-title {
+  flex: 1;
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.num {
+  color: #999;
+}
+.lebal {
+  height: 40rpx;
+}
+
+.goods-des {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 80rpx;
+}
+
+.btn {
+  margin-left: 20rpx;
+  width: 118rpx;
+  height: 40rpx;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 8rpx; 
+  border: 1rpx solid #dcdcdc; 
+}
+.rating-btn {
+  color: #de2628;
+  border: 1rpx solid #de2628;
+}
+
+.remark {
+  margin-top: 20rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.remark text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.payinfo {
+  margin-top: 20rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.addr {
+  padding: 30rpx 40rpx 30rpx 0;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.5;
+  border-bottom: 1rpx solid #e4e4e4
+}
+.addr text {
+  display: block;
+}
+.pay {
+  padding: 30rpx 40rpx 30rpx 0;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.5;
+  border-bottom: 1rpx solid #e4e4e4
+}
+.pay text {
+  display: block;
+}
+.topay {
+  display: block;
+  padding: 30rpx 40rpx 30rpx 0;
+  color: #de2628;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.do {
+  margin-top: 20rpx;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background: #fff;
+}
+
+.del-btn {
+  display: block;
+  margin: 20rpx auto;
+  width: 240rpx;
+  height: 60rpx;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  border: 1rpx solid #333;
+  background-color: #fff;
+}

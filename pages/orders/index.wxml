@@ -1,0 +1,34 @@
+<!--pages/orders/orders.wxml-->
+<view class="container">
+  <view class='nav-bar'>
+    <view class="nav-bar-item {{currentType==index ? 'active' : ''}}" wx:for="{{statusType}}" wx:for-item="item" data-index="{{index}}" catchtap='onNavBarTap'>{{item}}</view>
+  </view>
+
+  <view class="no-order" hidden="{{orderList.length ? true : false}}">
+    <image src="/images/no-order.png" class="no-order-img"></image>
+    <view class="text">暂无订单</view>
+  </view>
+
+  <view class='order-list' hidden="{{orderList.length ? false : true}}">
+    <view class='order-list-item' wx:for="{{orderList}}" wx:for-item="item" data-id='{{item.id}}' catchtap='onDetailTap'>
+      <view class='list-data'>
+        <text class='order-no'>{{item.order_id}}</text>
+        <text class='order-status {{item.order_status == 4? "text-color": ""}}'>{{orderStatus[item.order_status == -1? 0 : item.order_status]}}</text>
+      </view>
+      <view class='goods' wx:for="{{item.goods}}" wx:for-item="good">
+        <image src='{{good.pic}}'></image>
+        <view class='goods-info'>
+          <text class='goods-title'>{{good.title}}</text>
+          <text class='shop_num'>x {{good.shop_num}}</text>
+          <text class='price'>￥ {{good.price}}</text>
+        </view>
+      </view>
+      <view class='goods-des'>
+        <text class='goods-price'>合计：{{item.price}}</text>
+        <view class="btn" hidden="{{item.order_status== 1? false : true}}" catchtap="cancelOrderTap" data-orderid="{{item.order_id}}">取消订单</view>
+        <view class="btn topay-btn" hidden="{{item.order_status== 1? false : true}}" catchtap="toPayTap" data-orderid="{{item.order_id}}" data-money="{{item.price}}" data-goods='{{item.goods}}'>去支付</view>
+        <view class="btn" hidden="{{item.order_status== 3? false : true}}" catchtap='checkOrder' data-orderid="{{item.order_id}}">确认收货</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+<template name='rating'>
+  <view class='rating'>
+    <view class='user'>
+      <image src='{{avatar}}'></image>
+      <text class='nickname'>{{nickname}}</text>
+      <text class='date'>{{dateline}}</text>
+    </view>
+    <view class='content'>{{content}}</view>
+    <view class='pics' wx:if='{{pics}}'>
+      <view wx:for='{{pics}}' wx:for-item='pic'>
+        <image src='{{pic}}' mode='aspectFill' data-img='{{pic}}' data-pics='{{pics}}' catchtap='onViewImgTap'></image>
+      </view>
+    </view>
+
+    <text wx:if="{{reply}}" class='reply'>商家回复： {{reply}}</text>
+  </view>
+</template>

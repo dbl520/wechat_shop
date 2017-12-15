@@ -1,0 +1,76 @@
+/* pages/rating/index.wxss */
+.form {
+  width: 100%
+}
+.rating-wrapper {
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 0 40rpx 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.goodsinfo {
+  display: flex;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+}
+.goods-img {
+  width: 150rpx;
+  height: 150rpx;
+  background-color: #ccc;
+}
+.goods-title {
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  line-height: 1.5;
+  color: #333;
+}
+.textarea-wrapper {
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.textarea {
+  width: 100%;
+  height: 180rpx;
+  font-size: 28rpx;
+  line-height: 1.2;
+}
+
+.img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20rpx 0; 
+  width: 100%;
+}
+.pic {
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+  width: 140rpx;
+  height: 140rpx;
+  background-color: #ccc;
+}
+.add-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 138rpx;
+  height: 138rpx;
+  border: 1rpx dashed #e3e3e3;
+}
+.add-img image {
+  width: 63rpx;
+  height: 51rpx;
+}
+.add-img text {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.btn {
+  margin-top: 80rpx;
+  width: 670rpx;
+}

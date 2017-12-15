@@ -1,0 +1,26 @@
+<!--pages/serach/index.wxml-->
+<import src="../template/product-tpl.wxml" />
+
+<view class="container">
+  <view class='search-wrapper'>
+    <view class='search'>
+      <image class='search-img' src='/images/search.png'></image>
+      <input type='text' class='search-input' placeholder='请输入关键字' placeholder-class='placeholder' focus='true' value='{{inputKey}}' confirm-type='search' bindconfirm='onSerachTap'></input>
+    </view>
+    <text catchtap='onCloseTap'>取消</text>
+  </view>
+
+  <block>
+    <text class='no-result' hidden='{{result.length != 0}}'>{{noResult}}</text>
+  </block>
+
+  <view class='product-wrapper' hidden='{{result.length == 0}}'>
+    <view class='product-list'>
+      <block wx:for='{{result}}' wx:for-item='item'>
+        <view catchtap='toDetailsTap' data-id="{{item.id}}">
+          <template is='product' data='{{...item}}' />
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/address/address.wxml-->
+<view class='container'>
+
+  <view class="address-list">
+    <view class="a-address" wx:for="{{addressList}}" wx:for-item='item'  wx:for-index='idx' wx:key="{{index}}"
+    bindtap="selectTap" data-id="{{idx}}" >
+      <image class='default-icon' src="{{item.status == 1 ? '/images/icon_right.png':''}}"></image>
+      <view class="left-text ">
+        <view class="name-tel">{{item.name}} {{item.tel}}</view>
+        <view class="address-box">
+          <text>{{item.province}} {{item.city}} {{item.area}} </text>
+          <text> {{item.address}}</text>
+        </view>
+      </view>
+      <image src='/images/icon_edit.png' class="right-edit" catchtap="editAddess" data-id="{{idx}}"></image>
+    </view>
+  </view>
+
+  <view class='add' bindtap='onAddAddrTap'>
+    <image src='/images/add.png'></image>
+    <text>添加地址</text>
+  </view>
+</view>

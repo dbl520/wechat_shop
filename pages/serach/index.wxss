@@ -1,0 +1,65 @@
+/* pages/serach/index.wxss */
+@import "../template/product-tpl.wxss";
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15rpx 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+
+.search {
+  display: flex;
+  padding: 19rpx;
+  box-sizing: border-box;
+  width: 590rpx;
+  height: 78rpx;
+  line-height: 40rpx;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 40rpx;
+}
+
+.search-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.search-input {
+  flex: 1;
+  margin-top: -5rpx;
+  margin-left: 20rpx;
+  color: #666;
+  /* padding: 0 */
+}
+
+.placeholder {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.search-wrapper text {
+  font-size: 32rpx;
+  color: #999;
+}
+
+.product-wrapper {
+  margin-top: 30rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 40rpx;
+}
+
+.no-result {
+  margin-top: 80rpx;
+  font-size: 28rpx;
+  color: #999;
+}

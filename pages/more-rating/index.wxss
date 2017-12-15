@@ -1,0 +1,7 @@
+/* pages/more-rating/index.wxss */
+@import "../template/rating-tpl.wxss";
+
+.rating-wrapper {
+  margin-top: 35rpx;
+  background-color: #fff;
+}

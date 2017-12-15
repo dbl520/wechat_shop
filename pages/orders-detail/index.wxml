@@ -1,0 +1,50 @@
+<!--pages/orders-detail/index.wxml-->
+<view class='container'>
+  <view class='order-time'>
+    <text>下单时间：{{orderDetail.dateline}}</text>
+    <text>订单编号：{{orderDetail.order_id}}</text>
+  </view>
+  <view class='goods-wrapper'>
+    <view class='heading'>
+      <text>商品列表</text>
+      <text class='status'>{{orderStatus[orderDetail.order_status == -1? 0 : orderDetail.order_status]}}</text>
+    </view>
+    <view class='goodsList'>
+      <view class='goods' wx:for='{{orderDetail.goods}}' wx:for-item='item'>
+        <image class='goods-img' src='{{item.pic}}'></image>
+        <view class='goods-info'>
+          <view class='title'>
+            <text class='goods-title'>{{item.title}}</text>
+            <text class='num'>x {{item.shop_num}}</text>
+          </view>
+          <view class='lebal'></view>
+          <view class='goods-des'>
+            <text class='price'>￥{{item.order_price * item.shop_num}}</text>
+            <view class='btn rating-btn' wx:if='{{orderDetail.order_status == 4 && !item.commented}}' catchtap='onRatingTap' data-pic='{{item.pic}}' data-title='{{item.title}}' data-orderid='{{orderDetail.id}}' data-goodsid='{{item.id}}'>评价</view>
+            <view class='btn' hidden='{{!item.commented}}'>已评价</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='remark' hidden='{{!orderDetail.remarks}}'>
+    <text>备注：{{orderDetail.remarks}}</text>
+  </view>
+
+  <view class='payinfo'>
+    <view class='addr'>
+      <text>{{orderDetail.address.name}} {{orderDetail.address.tel}}</text>
+      <text>{{orderDetail.address.address}}</text>
+    </view>
+    <view class='pay'>
+      <text>支付方式：微信</text>
+      <text>商品合计： ￥ {{orderDetail.price}}</text>
+    </view>
+    <text class='topay'>实付：￥{{orderDetail.price}}</text>
+  </view>
+
+  <view class='do' hidden='{{orderDetail.order_status != 4 && orderDetail.order_status != -1}}'>
+    <button class='del-btn' catchtap='delOrder' data-orderid='{{orderDetail.order_id}}'>删除订单</button>
+  </view>
+</view>

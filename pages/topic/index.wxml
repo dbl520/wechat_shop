@@ -1,0 +1,14 @@
+<!--pages/topic/index.wxml-->
+<import src="../template/product-tpl.wxml" />
+
+<view class='container'>
+  <view class='product-wrapper'>
+    <view class='product-list'>
+      <block wx:for='{{goodList}}' wx:for-item='item'>
+        <view catchtap='toDetailsTap' data-id="{{item.id}}">
+          <template is='product' data='{{...item}}' />
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

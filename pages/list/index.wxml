@@ -1,0 +1,24 @@
+<!--pages/list/list.wxml-->
+<import src="../template/product-tpl.wxml" />
+
+<view class='container'>
+  <view class='nav-bar'>
+    <view class="nav-bar-item {{currentType == item.id ? 'active' : ''}}" wx:for="{{category}}" wx:for-item="item" data-index="{{item.id}}" catchtap='onNavBarTap'>{{item.name}}</view>
+  </view>
+
+  <block wx:if='{{goodList.length == 0}}'>
+    <text class='no-goods-text'>{{noGoods}}</text>
+  </block>
+
+  <block wx:else>
+    <view class='product-wrapper'>
+      <view class='product-list'>
+        <block wx:for='{{goodList}}' wx:for-item='item'>
+          <view catchtap='toDetailsTap' data-id="{{item.id}}">
+            <template is='product' data='{{...item}}' />
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>

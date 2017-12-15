@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<import src="../template/product-tpl.wxml" />
+
+<view class="container">
+  <view class='search-wrapper'>
+    <view class='search' bindtap='onFocusTap'>
+      <image class='search-img' src='/images/search.png'></image>
+      <text>请输入关键字</text>
+    </view>
+  </view>
+
+
+  <swiper class='banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ffffff" indicator-active-color='#ccc'>
+    <block wx:for='{{banner}}' wx:for-item='item'>
+      <swiper-item>
+        <image src="{{item.pic}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='list-wrapper'>
+    <!-- <view class='list-item' data-type='0' bindtap='onTypeTap'>
+      <image src='/images/icon-1.png'></image>
+      <text>分类1</text>
+    </view>
+    <view class='list-item' data-type='1' bindtap='onTypeTap'>
+      <image src='/images/icon-2.png'></image>
+      <text>分类2</text>
+    </view>
+    <view class='list-item' data-type='3' bindtap='onTypeTap'>
+      <image src='/images/icon-3.png'></image>
+      <text>分类3</text>
+    </view>
+    <view class='list-item' data-type='4' bindtap='onTypeTap'>
+      <image src='/images/icon-4.png'></image>
+      <text>分类4</text>
+    </view> -->
+    <view class='list-item' data-cid='0' data-category='专题1' bindtap='onTopicTap'>
+      <image src='/images/icon-1.png'></image>
+      <text>专题1</text>
+    </view>
+    <view class='list-item' data-cid='1' data-category='专题2' bindtap='onTopicTap'>
+      <image src='/images/icon-2.png'></image>
+      <text>专题2</text>
+    </view>
+    <view class='list-item' data-cid='2' data-category='专题3' bindtap='onTopicTap'>
+      <image src='/images/icon-3.png'></image>
+      <text>专题3</text>
+    </view>
+    <view class='list-item' data-cid='3' data-category='专题4' bindtap='onTopicTap'>
+      <image src='/images/icon-4.png'></image>
+      <text>专题4</text>
+    </view>
+  </view>
+  <block wx:if='{{goodList.length == 0}}'>
+    <text class='no-goods-text'>该分类下暂无商品</text>
+  </block>
+  <block wx:else>
+    <view class='product-wrapper'>
+      <text class='heading'>热门精选</text>
+      <view class='product-list'>
+        <block wx:for='{{goodList}}' wx:for-item='item'>
+          <view catchtap='toDetailsTap' data-id="{{item.id}}">
+            <template is='product' data='{{...item}}' />
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+
+</view>
