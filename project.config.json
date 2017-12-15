@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.4",
 	"appid": "",
-	"projectname": "HBMall",
+	"projectname": "Mall",
 	"condition": {
 		"search": {
 			"current": -1,

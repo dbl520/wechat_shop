@@ -91,7 +91,7 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '华邦商城',
+      title: '微商城',
       path: '/pages/index/index'
     }
   }
