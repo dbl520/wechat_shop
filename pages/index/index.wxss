@@ -2,10 +2,8 @@
 @import "../template/product-tpl.wxss";
 
 .search-wrapper {
-  /* position: fixed;
-  top: 0;  */
   padding: 15rpx 40rpx;
-  background-color: #fff;
+  background-color: #fafafa;
   z-index: 2;
 }
 
@@ -17,7 +15,8 @@
   box-sizing: border-box;
   width: 670rpx;
   height: 78rpx;
-  border: 1rpx solid #e2e2e2;
+  border: 1rpx solid #f2f2f2;
+  background-color: #fff;
   border-radius: 40rpx;
 }
 
@@ -33,7 +32,6 @@
 
 
 .banner {
-  /* margin-top: 100rpx;  */
   width: 100%;
   height: 400rpx;
 }

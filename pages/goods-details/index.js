@@ -23,44 +23,40 @@ Page({
 
     propertyChildIds: "",
     propertyChildNames: "",
-    canSubmit: false, //  选中规格尺寸时候是否允许加入购物车
     shopCarInfo: [],
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
+
+    selectedGoods: {},
 
     reputation: {}
   },
 
   onLoad: function (options) {
     var id = options.id
-    var that = this
     wx.request({
       url: app.globalData.url + 'goodsDetail',
       data: {
         id: id
       },
-      success: function (res) {
+      success: (res) => {
         var selectSizeTemp = ""
         if (res.data.attributes) {
           for (var i = 0; i < res.data.attributes.length; i++) {
             selectSizeTemp = selectSizeTemp + " " + res.data.attributes[i].name
           }
-          that.setData({
+          this.setData({
             hasMoreSelect: true,
-            selectSize: that.data.selectSize + selectSizeTemp,
-            selectSizePrice: res.data.price,
+            selectSize: this.data.selectSize + selectSizeTemp
+            // selectSizePrice: res.data.price
           })
         }
-
         // that.data.goodsDetail = res.data
-
-        that.setData({
+        this.setData({
           goodsDetail: res.data,
-          // selectSizePrice: res.data.price,
-          totalPrice: res.data.price,
           buyNumMax: res.data.stock,
           buyNumber: (res.data.stock > 0) ? 1 : 0
         })
-        WxParse.wxParse('article', 'html', res.data.content, that, 5)
+        WxParse.wxParse('article', 'html', res.data.content, this, 5)
       }
     })
     // 获取评论
@@ -71,8 +67,8 @@ Page({
         pagesize: 3,
         page: 1
       },
-      success: function (res) {
-        that.setData({
+      success: (res) => {
+        this.setData({
           reputation: res.data
         })
       }
@@ -115,6 +111,7 @@ Page({
    * 规格选择弹出框
    */
   bindGuiGeTap: function () {
+    this.labelItemTap()
     this.setData({
       hideShopPopup: false
     })
@@ -133,7 +130,7 @@ Page({
       currentNum--
       this.setData({
         buyNumber: currentNum,
-        totalPrice: (this.data.goodsDetail.price * currentNum).toFixed(2)
+        totalPrice: (this.data.selectedGoods.price * currentNum).toFixed(2)
       })
     }
   },
@@ -143,37 +140,61 @@ Page({
       currentNum++
       this.setData({
         buyNumber: currentNum,
-        totalPrice: (this.data.goodsDetail.price * currentNum).toFixed(2)
+        totalPrice: (this.data.selectedGoods.price * currentNum).toFixed(2)
       })
     }
   },
   /**
    * 选择商品规格
    */
-  // labelItemTap: function (e) {
-  //   var that = this
-  //   // 取消该分类下的子栏目所有的选中状态
-  //   var childs = that.data.goodsDetail.attributes[e.currentTarget.dataset.propertyindex].attrs
-  //   for (var i = 0; i < childs.length; i++) {
-  //     that.data.goodsDetail.attributes[e.currentTarget.dataset.propertyindex].attrs[i].active = false
-  //   }
-  //   // 设置当前选中状态
-  //   that.data.goodsDetail.attributes[e.currentTarget.dataset.propertyindex].attrs[e.currentTarget.dataset.propertychildindex].active = true
-  //   // 获取所有的选中规格尺寸数据
-  //   var needSelectNum = that.data.goodsDetail.attributes.length
-  //   var curSelectNum = 0
-  //   var propertyChildIds = ""
-  //   var propertyChildNames = ""
-  //   for (var i = 0; i < that.data.goodsDetail.attributes.length; i++) {
-  //     childs = that.data.goodsDetail.attributes[i].attrs
-  //     for (var j = 0; j < childs.length; j++) {
-  //       if (childs[j].active) {
-  //         curSelectNum++
-  //         propertyChildIds = propertyChildIds + that.data.goodsDetail.attributes[i].id + ":" + childs[j].id + ","
-  //         propertyChildNames = propertyChildNames + that.data.goodsDetail.attributes[i].name + ":" + childs[j].name + "  "
-  //       }
-  //     }
-  //   }
+  labelItemTap: function (e) {
+    var goodsDetail = this.data.goodsDetail
+    // var goods_id = this.data.goodsDetail.id
+    if (e) {
+      // goods_id = e.currentTarget.dataset.goodsid
+      var propertyindex = e.currentTarget.dataset.propertyindex
+      var propertychildindex = e.currentTarget.dataset.propertychildindex
+      // 取消该分类下的子栏目所有的选中状态
+      var childs = goodsDetail.attributes[propertyindex].attrs
+      for (var i = 0; i < childs.length; i++) {
+        goodsDetail.attributes[propertyindex].attrs[i].class = ''
+      }
+      // 设置当前选中状态
+      goodsDetail.attributes[propertyindex].attrs[propertychildindex].class = 'current'
+      this.setData({
+        goodsDetail: goodsDetail
+      })
+    }
+    // 获取所有的选中属性
+    var attrs = {}
+    var temp = ''
+    for (var i = 0; i < goodsDetail.attributes.length; i++) {
+      childs = goodsDetail.attributes[i].attrs
+      for (var j = 0; j < childs.length; j++) {
+        if (childs[j].class) {
+          var tid = goodsDetail.attributes[i].id
+          attrs[tid] = Number(childs[j].id)
+        }
+      }
+    }
+    console.log(attrs)
+    wx.request({
+      url: app.globalData.url + 'checkAttrs',
+      data: {
+        mark: this.data.goodsDetail.mark,
+        goods_id: this.data.goodsDetail.goods_id,
+        attrs: attrs
+      },
+      success: (res) => {
+        if (res.data) {
+          this.setData({
+            totalPrice: res.data.price,
+            selectedGoods: res.data
+          })
+        }
+      }
+    })
+  },
 
   /**
   * 加入购物车
@@ -184,7 +205,7 @@ Page({
       wx.request({
         url: app.globalData.url + 'add2Cart',
         data: {
-          id: this.data.goodsDetail.id,
+          id: this.data.selectedGoods.id,
           shop_num: this.data.buyNumber,
           mid: app.globalData.userInfo.mid
         },
@@ -209,10 +230,6 @@ Page({
             }
             //组建购物车
             var shopCarInfo = _this.bulidShopCarInfo()
-            
-            // this.setData({
-            //   shopCarInfo: shopCarInfo
-            // })
             // 写入本地存储
             wx.setStorage({
               key: "shopCarInfo",
@@ -251,7 +268,7 @@ Page({
       wx.request({
         url: app.globalData.url + 'add2Cart',
         data: {
-          id: this.data.goodsDetail.id,
+          id: this.data.selectedGoods.id,
           shop_num: this.data.buyNumber,
           mid: app.globalData.userInfo.mid
         },
@@ -295,21 +312,18 @@ Page({
     shopCarMap.shopList = {
       active: false,
       user_id: app.globalData.userInfo.mid,
-      goods_id: this.data.goodsDetail.id,
+      goods_id: this.data.selectedGoods.id,
       goods_num: this.data.buyNumber,
       goods: {
-        title: this.data.goodsDetail.title,
-        pic: this.data.goodsDetail.pic,
-        price: this.data.goodsDetail.price,
-        stock: this.data.goodsDetail.stock,
-        dateline: this.data.goodsDetail.dateline
+        title: this.data.selectedGoods.title,
+        pic: this.data.selectedGoods.pic,
+        price: this.data.selectedGoods.price,
+        stock: this.data.selectedGoods.stock
+        // dateline: this.data.goodsDetail.dateline
       }
     }
     var shopCarInfo = this.data.shopCarInfo
 
-    // if (!shopCarInfo.shopNum) {
-    //   shopCarInfo.shopNum = 0
-    // }
     if (!shopCarInfo.shopList) {
       shopCarInfo.shopList = []
     }
@@ -323,8 +337,6 @@ Page({
         break
       }
     }
-
-    // shopCarInfo.shopNum = shopCarInfo.shopNum + this.data.buyNumber
     if (hasSameGoodsIndex > -1) {
       shopCarInfo.shopList.splice(hasSameGoodsIndex, 1, shopCarMap.shopList)
     } else {
@@ -337,12 +349,12 @@ Page({
   buliduBuyNowInfo: function () {
     var shopCarMap = {}
     shopCarMap.shopList = [{
-      goods_id: this.data.goodsDetail.id,
+      goods_id: this.data.selectedGoods.id,
       goods_num: this.data.buyNumber,
       goods: {
-        pic: this.data.goodsDetail.pic,
-        title: this.data.goodsDetail.title,
-        price: this.data.goodsDetail.price
+        pic: this.data.selectedGoods.pic,
+        title: this.data.selectedGoods.title,
+        price: this.data.selectedGoods.price
       }
     }]
     var buyNowInfo = shopCarMap

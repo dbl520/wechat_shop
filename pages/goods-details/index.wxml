@@ -2,15 +2,13 @@
 <import src="../template/rating-tpl.wxml" />
 
 <view class="container">
-  <view class="swiper-container">
-    <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ffffff" indicator-active-color='#ccc'>
-      <block wx:for="{{goodsDetail.photo}}" wx:for-item='item' wx:key="id">
-        <swiper-item>
-          <image src="{{item}}" class="slide-image" mode="aspectFit" lazy-load="true" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <swiper class="swiper-container" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#ffffff" indicator-active-color='#ccc'>
+    <block wx:for="{{goodsDetail.photo}}" wx:for-item='item' wx:key="id">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
 
   <view class="goods-info">
     <view class="goods-title">{{goodsDetail.title}}</view>
@@ -44,14 +42,16 @@
   </view>
 
   <view class="footer-box">
-    <view class="contact">
-      <button open-type="contact" class='contact-btn'></button>
-      <image class='contact-icon' src='/images/icon_contact.png'></image>
-      <text>客服</text>
-    </view>
-    <view class="shop-cart-btn" bindtap="goShopCar">
-      <image src='/images/cart.png'></image>
-      <text>购物车</text>
+    <view class='btn-wrapper'>
+      <view class="contact">
+        <button open-type="contact" class='contact-btn'></button>
+        <image class='contact-icon' src='/images/icon_contact.png'></image>
+        <text>客服</text>
+      </view>
+      <view class="shop-cart-btn" bindtap="goShopCar">
+        <image src='/images/cart.png'></image>
+        <text>购物车</text>
+      </view>
     </view>
     <view class="join-shop-cart" bindtap="toAddShopCar">加入购物车</view>
     <view class="now-buy" bindtap="tobuy">立即购买</view>
@@ -63,29 +63,21 @@
     <view class="popup-contents">
       <view class="pop-goods-info">
         <view class="pop-img-box">
-          <image src="{{goodsDetail.pic}}" class="goods-thumbnail" />
+          <image src="{{selectedGoods.pic}}" class="goods-thumbnail" />
         </view>
         <view class="pop-goods-des">
-          <view class="pop-goods-title">{{goodsDetail.title}}</view>
+          <view class="pop-goods-title">{{selectedGoods.title}}</view>
           <view class="pop-goods-price">¥ {{totalPrice}}</view>
         </view>
         <image class="pop-goods-close" src='/images/popup-close.png' bindtap='closePopupTap'></image>
       </view>
+      <!-- 商品属性 -->
       <view class="size-label-box">
         <block wx:for="{{goodsDetail.attributes}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
           <view class="label">{{property.name}}</view>
           <view class="label-item-box">
-            <view class="label-item {{item.active ? 'active' : '' }}" wx:for="{{property.attrs}}" hidden='{{item.class}}'>
-              <!-- <view class="label-item {{item.active ? 'active' : '' }}" 
-              wx:for="{{property.attrs}}" 
-              hidden='{{item.class}}' 
-              wx:key="id" bindtap="labelItemTap" 
-              data-propertyindex="{{idx}}" 
-              data-propertyid="{{property.id}}" 
-              data-propertyname="{{property.name}}" 
-              data-propertychildindex="{{index}}"
-              data-propertychildid="{{item.id}}" 
-              data-propertychildname="{{item.name}}"> -->
+            <view class="label-item {{item.class ? 'active' : '' }}" wx:if='{{item.goods_detail}}' wx:for="{{property.attrs}}" wx:for-item='item' wx:key="id" catchtap="labelItemTap" data-propertyindex="{{idx}}" data-propertyid="{{property.id}}" data-propertyname="{{property.name}}"
+              data-propertychildindex="{{index}}" data-propertychildid="{{item.id}}" data-propertychildname="{{item.name}}" data-goodsid="{{item.goods_detail.id}}">
               {{item.name}}
             </view>
           </view>

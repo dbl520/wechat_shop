@@ -8,7 +8,7 @@
   width: 100%;
   height: 90rpx;
   line-height: 90rpx;
-  background-color: #fff;
+  background-color: #fafafa;
   box-shadow: 0 1rpx 5rpx #dcdcdc;
   z-index: 9;
 }

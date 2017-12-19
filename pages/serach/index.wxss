@@ -8,7 +8,7 @@
   padding: 15rpx 40rpx;
   box-sizing: border-box;
   width: 100%;
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 .search {
@@ -18,7 +18,8 @@
   width: 590rpx;
   height: 78rpx;
   line-height: 40rpx;
-  border: 1rpx solid #e2e2e2;
+  border: 1rpx solid #f2f2f2;
+  background-color: #fff;
   border-radius: 40rpx;
 }
 

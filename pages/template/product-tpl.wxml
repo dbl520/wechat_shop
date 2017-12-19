@@ -2,6 +2,6 @@
   <view class='product'>
     <image src='{{pic}}'></image>
     <text class='name'>{{title}}</text>
-    <text class='price'>{{price}}</text>
+    <text class='price'>￥ {{price}}</text>
   </view>
 </template>

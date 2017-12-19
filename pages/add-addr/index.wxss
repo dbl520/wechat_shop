@@ -3,7 +3,6 @@ page{
     height: 100%;
 }
 .container{
-    background-color: #f5f5f9;
     justify-content: initial;
 }
 .form-box{

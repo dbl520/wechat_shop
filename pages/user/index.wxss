@@ -1,28 +1,27 @@
 /* pages/user/user.wxss */
-page {
-  background-color: #f2f2f2;
+.login {
+  color: #fff;
+  font-size: 34rpx;
+}
+.login button {
+  margin-top: 20rpx;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  line-height: 1;
+  color: #b8a982;
+  background-color: transparent;
 }
 .userinfo {
-  /* position: relative; */
   display: flex;
   flex-direction: row;
-  align-items: center;   
-  /* justify-content: center;  */
+  align-items: center;
   padding: 0 50rpx;
   box-sizing: border-box;
   width: 100%;
   height: 250rpx;
-  background-color: #fff;
+  background-color: #1f1f1f;
 }
-
-/* .head-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 250rpx;
-  z-index: -1;
-} */
 
 .userinfo-avatar {
   width: 158rpx;
@@ -32,7 +31,7 @@ page {
 }
 
 .userinfo-nickname {
-  color: #333;
+  color: #fff;
 }
 
 .menu {
@@ -47,15 +46,15 @@ page {
 }
 .menu-icon {
   margin: 0 20rpx;
-  width: 80rpx;
-  height: 80rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 .text {
   display: flex; 
   justify-content: space-between;
   align-items: center;
   flex: 1;
-  padding: 0 20rpx;
+  padding: 0 20rpx 0 0;
   box-sizing: border-box; 
   height: 119rpx;
   font-size: 36rpx;
@@ -64,9 +63,8 @@ page {
 }
 .arrow-right {
   float: right;
-  /* margin: 22rpx 0 22rpx 0; */
-  width: 24rpx;
-  height: 36rpx;
+  width: 16rpx;
+  height: 24rpx;
 }
 
 .sup {

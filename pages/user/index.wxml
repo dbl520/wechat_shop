@@ -1,11 +1,12 @@
 <!--pages/user/user.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="login">登录</button>
-    <block wx:else>
-      <image class="userinfo-avatar" src="{{userInfo.avatar}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-    </block>
+    <image class="userinfo-avatar" src="{{userInfo.avatar ? userInfo.avatar : avatarDefault}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+    <view class='login' wx:if="{{!hasUserInfo && canIUse}}">
+      <text>未登录</text>
+      <button open-type="getUserInfo" bindgetuserinfo="login">点击登录</button>
+    </view>
   </view>
 
   <view class='menu'>

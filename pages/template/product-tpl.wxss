@@ -10,11 +10,16 @@
   display: block;
   font-size: 28rpx;
   margin-top: 15rpx;
-  color: #8b8b8b;
+  width: 100%;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .price {
   display: block;
   font-size: 28rpx;
+  font-weight: bold;
   margin-top: 15rpx;
-  color: #333333;
+  color: #666;
 }

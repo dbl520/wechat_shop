@@ -31,10 +31,7 @@ Page({
     this.animation = animation
     this.initAddress()
 
-
-
     var that = this
-    // this.initCityData(1)
     var id = e.id
     if (e.editType) {
       this.setData({
@@ -132,7 +129,6 @@ Page({
         areas: address.areas[citys[val[1]].id]
       })
     }
-    console.log(val)
 
     this.setData({
       value: [val[0], val[1], val[2]],

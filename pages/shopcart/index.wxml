@@ -26,9 +26,9 @@
               <view class="goods-label"></view>
               <view class="goods-price">¥ {{item.goods.price * item.goods_num}}</view>
               <view class="buy-num">
-                <view class="jian-btn {{item.number==1? 'disabled' : ''}}" catchtap="jianBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">-</view>
+                <view class="jian-btn {{item.goods_num == 1? 'disabled' : ''}}" catchtap="jianBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">-</view>
                 <input type="number" value="{{item.goods_num}}" disabled/>
-                <view class="jia-btn {{item.number==10? 'disabled' : ''}}" catchtap="jiaBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">+</view>
+                <view class="jia-btn {{item.goods_num == item.goods.stock ? 'disabled' : ''}}" catchtap="jiaBtnTap" data-goodsid="{{item.goods_id}}" data-index="{{index}}">+</view>
               </view>
             </view>
           </view>

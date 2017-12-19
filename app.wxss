@@ -1,5 +1,3 @@
-/**app.wxss**/
-/* @import 'zanui/dist/index.wxss'; */
 .container {
   height: 100%;
   display: flex;
@@ -10,5 +8,5 @@
 }  
 
 page {
-  background-color: #f2f2f2
+  background-color: #f3f3f3
 }

@@ -3,7 +3,6 @@
 var app = getApp()
 Page({
   data: {
-    first: false,
     saveHidden: true,
     totalPrice: 0,
     allSelect: false,
@@ -243,13 +242,14 @@ Page({
     var goods_id = e.currentTarget.dataset.goodsid
     var list = this.data.goodsList
     if (index !== "" && index != null) {
-      if (list[parseInt(index)].goods_num < 10) {
+      if (list[parseInt(index)].goods_num < list[parseInt(index)].goods.stock) {
         list[parseInt(index)].goods_num++
         this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list)
+
+        var shop_num = list[parseInt(index)].goods_num
+        this.editCart(goods_id, shop_num)
       }
     }
-    var shop_num = list[parseInt(index)].goods_num
-    this.editCart(goods_id, shop_num)
   },
   // 商品数量减
   jianBtnTap: function (e) {
@@ -260,10 +260,11 @@ Page({
       if (list[parseInt(index)].goods_num > 1) {
         list[parseInt(index)].goods_num--
         this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list)
+
+        var shop_num = list[parseInt(index)].goods_num
+        this.editCart(goods_id, shop_num)
       }
     }
-    var shop_num = list[parseInt(index)].goods_num
-    this.editCart(goods_id, shop_num)
   },
   // 编辑
   editCart: function (goods_id, shop_num) {
@@ -344,12 +345,11 @@ Page({
   // 结算
   toPayOrder: function () {
     wx.showLoading()
-    var that = this
     if (this.data.noSelect) {
       wx.hideLoading()
       return
     }
-    that.navigateToPayOrder()
+    this.navigateToPayOrder()
   },
 
   navigateToPayOrder: function () {

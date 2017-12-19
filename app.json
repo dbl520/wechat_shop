@@ -17,10 +17,11 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "white",
+    "navigationBarBackgroundColor": "#fafafa",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#de2628",
     "list": [
       {
         "pagePath": "pages/index/index",
