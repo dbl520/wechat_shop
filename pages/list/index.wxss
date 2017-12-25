@@ -1,55 +1,90 @@
 /* pages/list/list.wxss */
 @import '../template/product-tpl.wxss';
 
-.nav-bar {
-  position: fixed;
-  top: 0;
+page {
+  height: 100%;
+}
+
+.list-container {
   display: flex;
-  width: 100%;
-  height: 90rpx;
-  line-height: 90rpx;
-  background-color: #fafafa;
-  box-shadow: 0 1rpx 5rpx #dcdcdc;
-  z-index: 9;
+}
+.nav-bar {
+  width: 149rpx;
+  min-height: 100%;
+  background-color: #fff;
+  border-right: 1rpx solid #f2f2f2;
 }
 .nav-bar-item {
   position: relative;
   flex: 1;
+  padding: 40rpx 0;
+  box-sizing: border-box;
+  height: 40rpx;
   text-align: center;
   font-size: 28rpx;
+  line-height: 40rpx;
   color: #666;
 }
 .active {
-  color: #000;
+  color: #f56d02;
 }
-.nav-bar-item.active:after {
+ .nav-bar-item.active:after {
   content: "";  
   display: block;  
-  position: absolute;  
-  bottom: -1rpx; 
-  right: 0; 
-  width: 100%; 
-  height: 4rpx;  
-  background: #de2628; 
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  width: 6rpx;  
+  height: 40rpx;
+  background-color: #f56d02;
+} 
+
+.product-container {
+  flex: 1;
 }
 
-.product-wrapper {
-  margin-top: 120rpx;
-  padding: 40rpx;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #fff;
-}
 .product-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20rpx 0;
+  padding: 40rpx 20rpx;
+  box-sizing: border-box;
+  background-color: #fff;
 }
 
-.no-goods-text {
-  margin-top: 120rpx;
-  font-size: 32rpx;
-  line-height: 2.0;
-  color: #999;
+/* 覆盖模板样式 */
+.product {
+  margin-bottom: 40rpx;
+  width: 270rpx;
+}
+.product image {
+  width: 270rpx;
+  height: 248rpx;
+}
+.name {
+  display: block;
+  font-size: 24rpx;
+  margin-top: 15rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  color: #2b2b2b;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.price {
+  margin-top: 15rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.now-price {
+  font-size: 26rpx;
+  color: #ff6325;
+}
+.price .old-price {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #ababab;
 }

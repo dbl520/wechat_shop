@@ -17,8 +17,8 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fafafa",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#f56d02",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#de2628",

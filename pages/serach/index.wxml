@@ -5,7 +5,7 @@
   <view class='search-wrapper'>
     <view class='search'>
       <image class='search-img' src='/images/search.png'></image>
-      <input type='text' class='search-input' placeholder='请输入关键字' placeholder-class='placeholder' focus='true' value='{{inputKey}}' confirm-type='search' bindconfirm='onSerachTap'></input>
+      <input type='text' class='search-input' placeholder='搜索商品' placeholder-class='placeholder' focus='true' value='{{inputKey}}' confirm-type='search' bindconfirm='onSerachTap'></input>
     </view>
     <text catchtap='onCloseTap'>取消</text>
   </view>

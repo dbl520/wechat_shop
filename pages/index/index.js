@@ -14,7 +14,7 @@ Page({
     banner: [],
     goodList: [],
     cid: 0,
-    pagesize: 8
+    pagesize: 6
   },
 
   onLoad: function () {
@@ -85,8 +85,8 @@ Page({
   },
   
   onReachBottom: function() {
-    wx.showNavigationBarLoading()
-    this.http(goodListUrl, this.data.cid, this.data.pagesize, this.goodList)
+    // wx.showNavigationBarLoading()
+    // this.http(goodListUrl, this.data.cid, this.data.pagesize, this.goodList)
   },
 
   onShareAppMessage: function () {

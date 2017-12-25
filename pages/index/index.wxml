@@ -5,7 +5,7 @@
   <view class='search-wrapper'>
     <view class='search' bindtap='onFocusTap'>
       <image class='search-img' src='/images/search.png'></image>
-      <text>请输入关键字</text>
+      <text>搜索商品</text>
     </view>
   </view>
 
@@ -35,20 +35,34 @@
       <text>专题4</text>
     </view>
   </view>
-  <block wx:if='{{goodList.length == 0}}'>
-    <text class='no-goods-text'>该分类下暂无商品</text>
-  </block>
-  <block wx:else>
-    <view class='product-wrapper'>
-      <text class='heading'>热门精选</text>
-      <view class='product-list'>
-        <block wx:for='{{goodList}}' wx:for-item='item'>
-          <view catchtap='toDetailsTap' data-id="{{item.id}}">
-            <template is='product' data='{{...item}}' />
-          </view>
-        </block>
-      </view>
+
+  <view class='ad'>
+    <image src='/images/images_02.jpg'></image>
+    <image src='/images/images_05.jpg'></image>
+  </view>
+
+  <view class='product-wrapper'>
+    <text class='heading'>数码3C</text>
+    <image class='category-img' src='/images/images_08.jpg'></image>
+    <view class='product-list'>
+      <block wx:for='{{goodList}}' wx:for-item='item'>
+        <view catchtap='toDetailsTap' data-id="{{item.id}}">
+          <template is='product' data='{{...item}}' />
+        </view>
+      </block>
     </view>
-  </block>
+  </view>
+
+  <view class='product-wrapper'>
+    <text class='heading'>手机</text>
+    <image class='category-img' src='/images/images_15.jpg'></image>
+    <view class='product-list'>
+      <block wx:for='{{goodList}}' wx:for-item='item'>
+        <view catchtap='toDetailsTap' data-id="{{item.id}}">
+          <template is='product' data='{{...item}}' />
+        </view>
+      </block>
+    </view>
+  </view>
 
 </view>

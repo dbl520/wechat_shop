@@ -9,18 +9,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    noGoods: '',
-    statusType: ["全部", "分类1", "分类2", "分类3"],
     category: [],
     currentType: 0,
     pagesize: 8,
-    goodList: []
+    goodList: [],
+    scrollHight: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var res = wx.getSystemInfoSync().windowWidth
+    var scrollHight = Math.floor(750 / res * wx.getSystemInfoSync().windowHeight)
+    this.setData({
+      scrollHight: scrollHight
+    })
     this.getCategory()
     this.http(goodListUrl, this.data.currentType, this.data.pagesize, this.goodList)
   },
@@ -87,7 +91,6 @@ Page({
       })
     } else {
       this.setData({
-        noGoods: '该分类下暂无商品',
         pagesize: pagesize,
         goodList: data
       })

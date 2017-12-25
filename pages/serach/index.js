@@ -34,13 +34,13 @@ Page({
           if (res.data.length == 0) {
             this.setData({
               inputKey: '',
-              noResult: '未找到相关产品，换个关键词试试',
-              result: res.data
+              noResult: '未找到相关商品，换个关键词试试',
+              result: res.data.data
             })
           }
           this.setData({
             inputKey: '',
-            result: res.data
+            result: res.data.data
           })
         }
       })

@@ -33,14 +33,12 @@ page {
 }
 
 .to-index-btn {
-  color: #fff;
-  background: #e64340;
-  border-radius: 6px;
   width: 300rpx;
   height: 70rpx;
+  font-size: 32rpx;
   line-height: 70rpx;
   text-align: center;
-  font-size: 28rpx;
+  color: #e64340;
 }
 
 .list-top {

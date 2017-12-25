@@ -2,6 +2,9 @@
   <view class='product'>
     <image src='{{pic}}'></image>
     <text class='name'>{{title}}</text>
-    <text class='price'>￥ {{price}}</text>
+    <view class='price'>
+      <text class='now-price'>￥{{price}}</text>
+      <text class='old-price'>￥99</text>
+    </view>
   </view>
 </template>

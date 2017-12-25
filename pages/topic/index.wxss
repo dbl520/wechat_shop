@@ -3,7 +3,6 @@
 
 .product-wrapper {
   margin-top: 20rpx;
-  padding: 40rpx;
   box-sizing: border-box;
   width: 100%;
   background-color: #fff;

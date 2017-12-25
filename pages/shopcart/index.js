@@ -70,7 +70,7 @@ Page({
         goodsList: shopCarInfo.shopList
       })
       this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), shopCarInfo.shopList)
-    } else if (app.globalData.userInfo){
+    } else if (app.globalData.userInfo) {
       this.initShopCart()
     }
   },
@@ -290,7 +290,7 @@ Page({
     }
     this.setGoodsList(!this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list)
   },
-  
+
   saveTap: function () {
     var list = this.data.goodsList
     for (var i = 0; i < list.length; i++) {
@@ -307,40 +307,42 @@ Page({
   // 删除选中
   deleteSelected: function () {
     var _this = this
-    var list = this.data.goodsList
-    var templist = this.data.goodsList
-    var temp = []
 
-    list = list.filter(function (curGoods) {
-      return !curGoods.active
-    })
-    templist = templist.filter(function (curGoods) {
-      return curGoods.active
-    })
+    wx.showModal({
+      title: '温馨提示',
+      content: '确认删除吗？',
+      success(res) {
+        var list = _this.data.goodsList
+        var templist = _this.data.goodsList
+        var temp = []
 
-    for (let i = 0; i < templist.length; i++) {
-      let curItem = templist[i]
-      temp.push(curItem.goods_id)
-    }
-    temp = temp.toString()
+        list = list.filter(function (curGoods) {
+          return !curGoods.active
+        })
+        templist = templist.filter(function (curGoods) {
+          return curGoods.active
+        })
 
-    wx.request({
-      url: app.globalData.url + 'deleteCart',
-      data: {
-        mid: app.globalData.userInfo.mid,
-        ids: temp
-      },
-      success: function (res) {
-        if (res.data.code == 1) {
-          wx.showToast({
-            title: '删除成功',
-            icon: 'success',
-            duration: 2000
-          })
+        for (let i = 0; i < templist.length; i++) {
+          let curItem = templist[i]
+          temp.push(curItem.goods_id)
         }
+        temp = temp.toString()
+
+        wx.request({
+          url: app.globalData.url + 'deleteCart',
+          data: {
+            mid: app.globalData.userInfo.mid,
+            ids: temp
+          },
+          success: function (res) {
+            if (res.data.code == 1) {
+              _this.setGoodsList(_this.getSaveHide(), _this.totalPrice(), _this.allSelect(), _this.noSelect(), list)
+            }
+          }
+        })
       }
     })
-    this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), list)
   },
   // 结算
   toPayOrder: function () {

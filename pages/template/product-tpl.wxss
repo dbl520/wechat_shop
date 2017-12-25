@@ -1,25 +1,35 @@
 .product {
   margin-bottom: 40rpx;
-  width: 310rpx;
+  width: 370rpx;
 }
 .product image {
-  width: 310rpx;
-  height: 380rpx;
+  width: 370rpx;
+  height: 248rpx;
 }
 .name {
   display: block;
-  font-size: 28rpx;
+  font-size: 30rpx;
   margin-top: 15rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
   width: 100%;
-  color: #666;
+  color: #2b2b2b;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 .price {
-  display: block;
-  font-size: 28rpx;
-  font-weight: bold;
   margin-top: 15rpx;
-  color: #666;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.now-price {
+  font-size: 30rpx;
+  color: #ff6325;
+}
+.price .old-price {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  color: #ababab;
 }
