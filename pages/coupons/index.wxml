@@ -1,0 +1,44 @@
+<!--pages/coupons/index.wxml-->
+<view class='container'>
+  <view class='nav-bar'>
+    <view class="nav-bar-item {{currentType==index ? 'active' : ''}}" wx:for="{{statusType}}" wx:for-item="item" data-index="{{index}}" catchtap='onNavBarTap'>{{item}}</view>
+  </view>
+
+  <view class='coupons'>
+    <view class='coupon'>
+      <image src='/images/coupon_01.png'></image>
+      <view class='desc-wrapper'>
+        <text class='face-value'>30元</text>
+        <view class='desc'>
+          <text>满200减30</text>
+          <text>限元旦当天使用</text>
+        </view>
+      </view>
+      <text class='date'>有限期：2017.12.28 - 2018.01.01</text>
+    </view>
+
+    <view class='coupon'>
+      <image src='/images/coupon_02.png'></image>
+      <view class='desc-wrapper'>
+        <text class='face-value'>30元</text>
+        <view class='desc'>
+          <text>满200减30</text>
+          <text>限元旦当天使用</text>
+        </view>
+      </view>
+      <text class='date'>有限期：2017.12.28 - 2018.01.01</text>
+    </view>
+
+    <view class='coupon'>
+      <image src='/images/coupon_03.png'></image>
+      <view class='desc-wrapper'>
+        <text class='face-value'>30元</text>
+        <view class='desc'>
+          <text>满200减30</text>
+          <text>限元旦当天使用</text>
+        </view>
+      </view>
+      <text class='date'>有限期：2017.12.28 - 2018.01.01</text>
+    </view>
+  </view>
+</view>

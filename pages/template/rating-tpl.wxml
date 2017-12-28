@@ -5,6 +5,15 @@
       <text class='nickname'>{{nickname}}</text>
       <text class='date'>{{dateline}}</text>
     </view>
+
+    <view class='stars'>
+      <text>评分：</text>
+      <block wx:for="{{stars}}" wx:for-item="i">
+        <image wx:if="{{i}}" src="/images/star-on.png"></image>
+        <image wx:else src="/images/star-off.png"></image>
+      </block>
+    </view>
+
     <view class='content'>{{content}}</view>
     <view class='pics' wx:if='{{pics}}'>
       <view wx:for='{{pics}}' wx:for-item='pic'>

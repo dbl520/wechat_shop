@@ -17,6 +17,13 @@
         <image class='arrow-right' src='/images/arrow-right.png'></image>
       </view>
     </view>
+    <view class='menu-item' catchtap='onCouponTap'>
+      <image class='menu-icon' src='/images/icon_coupon.png'></image>
+      <view class='text'>
+        <text>优惠券</text>
+        <image class='arrow-right' src='/images/arrow-right.png'></image>
+      </view>
+    </view>
     <view class='menu-item' catchtap='onAddrTap'>
       <image class='menu-icon' src='/images/icon_address.png'></image>
       <view class='text'>

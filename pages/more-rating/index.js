@@ -1,4 +1,5 @@
 // pages/more-rating/index.js
+var util = require('../../utils/util.js')
 const app = getApp()
 
 Page({
@@ -9,7 +10,8 @@ Page({
   data: {
     goods_id: '',
     pagesize: 0,
-    reputation: {}
+    reputation: {},
+    ratings: []
   },
 
   /**
@@ -35,9 +37,32 @@ Page({
       },
       success: (res) => {
         wx.hideNavigationBarLoading()
+
+        var ratings = []
+        for (let i in res.data.data) {
+          var obj = res.data.data[i]
+          var temp = {
+            id: obj.id,
+            mid: obj.mid,
+            gid: obj.gid,
+            oid: obj.oid,
+            content: obj.content,
+            score: obj.score,
+            stars: util.convertToStarsArray(obj.score),
+            reply: obj.reply,
+            replytime: obj.replytime,
+            dateline: obj.dateline,
+            nickname: obj.nickname,
+            account: obj.acount,
+            avatar: obj.avatar,
+            pics: obj.pics
+          }
+          ratings.push(temp)
+        }
+
         this.setData({
           pagesize: pagesize,
-          reputation: res.data
+          ratings: ratings
         })
       }
     })

@@ -75,7 +75,6 @@ form {
   width: 720rpx;
   margin-left: 30rpx;
   display: flex;
-  /*justify-content: space-between;*/
   border-top: 1px solid #eee;
   padding: 30rpx 30rpx 30rpx 0;
   box-sizing: border-box;

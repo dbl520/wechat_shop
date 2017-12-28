@@ -52,6 +52,20 @@ Page({
     }
   },
 
+  onCouponTap: function () {
+    if (app.globalData.userInfo) {
+      wx.navigateTo({
+        url: '/pages/coupons/index',
+      })
+    } else {
+      wx.showModal({
+        title: '登录提示',
+        content: '登录后才能查看哦！',
+        showCancel: false
+      })
+    }
+  },
+
   onAddrTap: function () {
     if (app.globalData.userInfo) {
       wx.navigateTo({

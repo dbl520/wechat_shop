@@ -1,5 +1,5 @@
 //index.js
-//获取应用实例
+var util = require('../../utils/util.js')
 var app = getApp()
 var WxParse = require('../../wxParse/wxParse.js')
 
@@ -47,10 +47,8 @@ Page({
           this.setData({
             hasMoreSelect: true,
             selectSize: this.data.selectSize + selectSizeTemp
-            // selectSizePrice: res.data.price
           })
         }
-        // that.data.goodsDetail = res.data
         this.setData({
           goodsDetail: res.data,
           buyNumMax: res.data.stock,
@@ -68,13 +66,36 @@ Page({
         page: 1
       },
       success: (res) => {
+        var ratings = []
+        for (let i in res.data.data) {
+          var obj = res.data.data[i]
+          var temp = {
+            id: obj.id,
+            mid: obj.mid,
+            gid: obj.gid,
+            oid: obj.oid,
+            content: obj.content,
+            score: obj.score,
+            stars: util.convertToStarsArray(obj.score),
+            reply: obj.reply,
+            replytime: obj.replytime,
+            dateline: obj.dateline,
+            nickname: obj.nickname,
+            account: obj.acount,
+            avatar: obj.avatar,
+            pics: obj.pics
+          }
+          ratings.push(temp)
+        }
         this.setData({
-          reputation: res.data
+          reputation: res.data,
+          ratings: ratings
         })
       }
     })
 
   },
+  
   onMoreRatingTap: function (e) {
     var id = e.currentTarget.dataset.id
     wx.navigateTo({

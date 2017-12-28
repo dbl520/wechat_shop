@@ -15,13 +15,13 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 330rpx;
+  padding-top: 300rpx;
   width: 100%;
   height: 100%;
 }
 .noGoodList image {
-  width: 108rpx;
-  height: 108rpx;
+  width: 264rpx;
+  height: 258rpx;
 }
 .title-box {
   width: 100%;
@@ -34,11 +34,13 @@ page {
 
 .to-index-btn {
   width: 300rpx;
-  height: 70rpx;
-  font-size: 32rpx;
-  line-height: 70rpx;
+  height: 65rpx;
+  font-size: 28rpx;
+  line-height: 65rpx;
   text-align: center;
-  color: #e64340;
+  color: #fff;
+  background-color: #f56d02;
+  border-radius: 8rpx;
 }
 
 .list-top {
@@ -140,7 +142,6 @@ page {
   right: 30rpx;
   bottom: 0;
   display: flex;
-  /*justify-content: space-between;*/
   font-size: 24rpx;
   text-align: center;
 }

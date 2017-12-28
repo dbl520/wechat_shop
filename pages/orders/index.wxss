@@ -6,7 +6,7 @@
   width: 100%;
   height: 90rpx;
   line-height: 90rpx;
-  background-color: #fafafa;
+  background-color: #fff;
   box-shadow: 0 1rpx 5rpx #dcdcdc;
   z-index: 9;
 }
@@ -18,17 +18,18 @@
   color: #666;
 }
 .active {
-  color: #000;
+  color: #f56d02;
 }
 .nav-bar-item.active:after {
   content: "";  
   display: block;  
   position: absolute;  
   bottom: -1rpx; 
-  right: 0; 
-  width: 100%; 
+  left: 50%;
+  margin-left: -30rpx; 
+  width: 60rpx;
   height: 4rpx;  
-  background: #de2628; 
+  background: #f56d02; 
 }
 
 .no-order{
@@ -83,7 +84,7 @@
   color: #333;
 }
 .text-color {
-  color: #de2628;
+  color: #f56d02;
 }
 
 .goods {
@@ -147,6 +148,6 @@
   border: 1rpx solid #dcdcdc; 
 }
 .topay-btn {
-  color: #de2628;
-  border: 1rpx solid #de2628;
+  color: #f56d02;
+  border: 1rpx solid #f56d02;
 }

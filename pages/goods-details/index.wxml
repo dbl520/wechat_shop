@@ -36,7 +36,7 @@
       <text class='reating-num'>（{{reputation.total}}）</text>
       <text class='more' bindtap='onMoreRatingTap' data-id='{{goodsDetail.id}}'>更多></text>
     </view>
-    <block wx:for='{{reputation.data}}' wx:for-item='item' wx:for-index='idx'>
+    <block wx:for='{{ratings}}' wx:for-item='item' wx:for-index='idx'>
       <template is='rating' data='{{...item}}' />
     </block>
   </view>
@@ -45,7 +45,7 @@
     <view class='btn-wrapper'>
       <view class="contact">
         <button open-type="contact" class='contact-btn'></button>
-        <image class='contact-icon' src='/images/icon_contact.png'></image>
+        <image class='contact-icon' src='/images/contact.png'></image>
         <text>客服</text>
       </view>
       <view class="shop-cart-btn" bindtap="goShopCar">

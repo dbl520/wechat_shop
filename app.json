@@ -8,6 +8,7 @@
     "pages/goods-details/index",
     "pages/more-rating/index",
     "pages/orders/index",
+    "pages/coupons/index",
     "pages/orders-detail/index",
     "pages/to-pay-order/index",
     "pages/address/index",
@@ -21,7 +22,7 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "selectedColor": "#de2628",
+    "selectedColor": "#f56d02",
     "list": [
       {
         "pagePath": "pages/index/index",

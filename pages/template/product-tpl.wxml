@@ -8,3 +8,10 @@
     </view>
   </view>
 </template>
+
+<template name='category-product'>
+  <view class='product-item'>
+    <image src='{{pic}}'></image>
+    <text class='name'>{{title}}</text>
+  </view>
+</template>

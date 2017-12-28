@@ -67,16 +67,6 @@ Page({
     })
   },
 
-  // onTypeTap: function(e) {
-  //   wx.showLoading()
-  //   var type = e.currentTarget.dataset.type
-  //   this.setData({
-  //     Type: type,
-  //     pagesize: 8
-  //   })
-  //   this.http(goodListUrl, this.data.Type, this.data.pagesize, this.goodList)
-  // },
-
   toDetailsTap: function (e) {
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
@@ -85,8 +75,7 @@ Page({
   },
   
   onReachBottom: function() {
-    // wx.showNavigationBarLoading()
-    // this.http(goodListUrl, this.data.cid, this.data.pagesize, this.goodList)
+    
   },
 
   onShareAppMessage: function () {

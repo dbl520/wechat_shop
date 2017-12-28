@@ -3,7 +3,9 @@
 
 .search-wrapper {
   padding: 15rpx 40rpx;
-  background-color: #fafafa;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f56d02;
   z-index: 2;
 }
 
@@ -14,10 +16,10 @@
   padding: 19rpx;
   box-sizing: border-box;
   width: 670rpx;
-  height: 78rpx;
+  height: 76rpx;
   border: 1rpx solid #f2f2f2;
-  background-color: #fff;
-  border-radius: 40rpx;
+  background-color: rgba(255, 255, 255, .9);
+  border-radius: 38rpx;
 }
 
 .search-img {
@@ -107,7 +109,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 40rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
 }
 
 .no-goods-text {

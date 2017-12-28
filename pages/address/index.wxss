@@ -53,7 +53,6 @@
   background: #fff;
 }
 .add image {
-  /* margin-right: 10rpx; */
   width: 60rpx;
   height: 60rpx;
 }

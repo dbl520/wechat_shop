@@ -11,7 +11,12 @@ Page({
     goodsId: '',
     pic: '',
     title: '',
-    pics: []
+    pics: [],
+
+    stars: [0, 0, 0, 0, 0],
+    score: 0,
+    lv: ['很差', '一般', '满意', '非常满意', '无可挑剔'],
+    tips: ''
   },
 
   /**
@@ -27,6 +32,19 @@ Page({
       goodsId: goodsId,
       pic: pic,
       title: title
+    })
+  },
+
+  score: function (e) {
+    var stars = [0, 0, 0, 0, 0]
+    var idx = e.currentTarget.dataset.idx + 1
+    for (let i = 0; i < idx; i++) {
+      stars[i] = 1
+    }
+    this.setData({
+      stars: stars,
+      score: idx,
+      tips: this.data.lv[idx - 1]
     })
   },
 
@@ -63,7 +81,13 @@ Page({
 
   formSubmit: function (e) {
     var rating = e.detail.value.rating
-    if (rating != '' || this.data.pics.length != 0) {
+    if (this.data.score == 0) {
+      wx.showModal({
+        title: '提示！',
+        content: '您还没有评分呢',
+        showCancel: false
+      })
+    } else if(rating != '' || this.data.pics.length != 0) {
       wx.request({
         url: app.globalData.url + 'commentOrder',
         data: {
@@ -72,7 +96,7 @@ Page({
           goods_id: this.data.goodsId,
           pic: this.data.pics.join('||'),
           content: rating,
-          score: 5
+          score: this.data.score
         },
         method: 'post',
         header: { 'content-type': 'application/x-www-form-urlencoded' },

@@ -11,7 +11,7 @@ Page({
   data: {
     category: [],
     currentType: 0,
-    pagesize: 8,
+    pagesize: 15,
     goodList: [],
     scrollHight: null
   },
@@ -26,7 +26,6 @@ Page({
       scrollHight: scrollHight
     })
     this.getCategory()
-    this.http(goodListUrl, this.data.currentType, this.data.pagesize, this.goodList)
   },
 
   getCategory: function () {
@@ -48,22 +47,17 @@ Page({
             category.push(temp)
           }
         }
-        var all = {
-          id: '0',
-          name: '全部'
-        }
-        category.unshift(all)
+       
         this.setData({
-          category: category
+          category: category,
+          currentType: category[0].id
         })
+        this.http(goodListUrl, this.data.currentType, this.data.pagesize, this.goodList)
       }
     })
   },
 
   http: function (url, cid, pagesize, callback) {
-    if (cid == 0) {
-      cid = ''
-    }
     wx.request({
       url: url,
       data: {
@@ -80,10 +74,9 @@ Page({
   },
 
   goodList: function (data) {
-    // console.log(data)
     wx.hideLoading()
     wx.hideNavigationBarLoading()
-    var pagesize = this.data.pagesize + 8
+    var pagesize = this.data.pagesize + 15
     if (data.length != 0) {
       this.setData({
         pagesize: pagesize,
@@ -102,7 +95,7 @@ Page({
     var idx = e.currentTarget.dataset.index
     this.setData({
       currentType: idx,
-      pagesize: 8
+      pagesize: 15
     })
     this.http(goodListUrl, this.data.currentType, this.data.pagesize, this.goodList)
   },

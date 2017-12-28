@@ -13,7 +13,7 @@
     <view class='order-list-item' wx:for="{{orderList}}" wx:for-item="item" data-id='{{item.id}}' catchtap='onDetailTap'>
       <view class='list-data'>
         <text class='order-no'>{{item.order_id}}</text>
-        <text class='order-status {{item.order_status == 4? "text-color": ""}}'>{{orderStatus[item.order_status == -1? 0 : item.order_status]}}</text>
+        <text class='order-status {{item.order_status == 1? "text-color": ""}}'>{{orderStatus[item.order_status == -1? 0 : item.order_status]}}</text>
       </view>
       <view class='goods' wx:for="{{item.goods}}" wx:for-item="good">
         <image src='{{good.pic}}'></image>

@@ -2,17 +2,12 @@
 .form {
   width: 100%
 }
-.rating-wrapper {
-  margin-top: 20rpx;
-  width: 100%;
-  padding: 0 40rpx 20rpx;
-  box-sizing: border-box;
-  background-color: #fff;
-}
 .goodsinfo {
   display: flex;
-  padding: 40rpx 0;
+  margin-top: 20rpx;
+  padding: 20rpx 40rpx;
   box-sizing: border-box;
+  background-color: #fff;
 }
 .goods-img {
   width: 150rpx;
@@ -26,7 +21,37 @@
   line-height: 1.5;
   color: #333;
 }
+
+.rating-wrapper {
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.stars-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1rpx solid #e3e3e3;
+}
+.stars-wrapper {
+  color: #999;
+}
+.stars-wrapper .stars {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.stars-wrapper image {
+  margin: 0 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
 .textarea-wrapper {
+  margin-top: 20rpx;
   padding: 20rpx 0;
   box-sizing: border-box;
 }

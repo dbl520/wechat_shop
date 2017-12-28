@@ -10,7 +10,6 @@ page {
 }
 .nav-bar {
   width: 149rpx;
-  min-height: 100%;
   background-color: #fff;
   border-right: 1rpx solid #f2f2f2;
 }
@@ -41,50 +40,13 @@ page {
 
 .product-container {
   flex: 1;
+  background-color: #fff;
 }
 
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 40rpx 20rpx;
+  padding: 40rpx 30rpx;
   box-sizing: border-box;
-  background-color: #fff;
 }
 
-/* 覆盖模板样式 */
-.product {
-  margin-bottom: 40rpx;
-  width: 270rpx;
-}
-.product image {
-  width: 270rpx;
-  height: 248rpx;
-}
-.name {
-  display: block;
-  font-size: 24rpx;
-  margin-top: 15rpx;
-  padding: 0 20rpx;
-  box-sizing: border-box;
-  width: 100%;
-  color: #2b2b2b;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.price {
-  margin-top: 15rpx;
-  padding: 0 20rpx;
-  box-sizing: border-box;
-}
-.now-price {
-  font-size: 26rpx;
-  color: #ff6325;
-}
-.price .old-price {
-  margin-left: 20rpx;
-  font-size: 24rpx;
-  text-decoration: line-through;
-  color: #ababab;
-}

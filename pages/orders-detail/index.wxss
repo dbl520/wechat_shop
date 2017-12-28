@@ -88,8 +88,8 @@
   border: 1rpx solid #dcdcdc; 
 }
 .rating-btn {
-  color: #de2628;
-  border: 1rpx solid #de2628;
+  color: #f56d02;
+  border: 1rpx solid #f56d02;
 }
 
 .remark {
@@ -134,7 +134,7 @@
 .topay {
   display: block;
   padding: 30rpx 40rpx 30rpx 0;
-  color: #de2628;
+  color: #f56d02;
   font-size: 28rpx;
   line-height: 1.5;
 }

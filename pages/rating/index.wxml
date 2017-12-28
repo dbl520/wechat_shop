@@ -1,17 +1,27 @@
 <!--pages/rating/index.wxml-->
 <view class='container'>
   <form class='form' bindsubmit="formSubmit">
+    <view class='goodsinfo'>
+      <image src='{{pic}}' class='goods-img'></image>
+      <text class='goods-title'>{{title}}</text>
+    </view>
+    
     <view class='rating-wrapper'>
-      <view class='goodsinfo'>
-        <image src='{{pic}}' class='goods-img'></image>
-        <text class='goods-title'>{{title}}</text>
+      <view class='stars-wrapper'>
+        <text>{{tips}}</text>
+        <view class='stars'>
+          <view wx:for="{{stars}}" wx:for-item="i" catchtap='score' data-idx='{{index}}'>
+            <image wx:if="{{i}}" src="/images/star-on.png"></image>
+            <image wx:else src="/images/star-off.png"></image>
+          </view>
+        </view>
       </view>
       <view class='textarea-wrapper'>
         <textarea name='rating' placeholder='请留下您的评论' class='textarea'></textarea>
       </view>
       <view class='img-wrapper'>
-        <block wx:for='{{imgs}}' wx:for-item='item'  wx:for-idx='idx'>
-          <image src='{{item}}' class='pic' mode='aspectFill' ></image>
+        <block wx:for='{{imgs}}' wx:for-item='item' wx:for-idx='idx'>
+          <image src='{{item}}' class='pic' mode='aspectFill'></image>
         </block>
         <view class='add-img' hidden='{{imgs.length == 9}}' bindtap='chooseImg'>
           <image src='/images/icon-rating.png'></image>

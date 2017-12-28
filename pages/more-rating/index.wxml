@@ -3,7 +3,7 @@
 
 <view class='container'>
   <view class='rating-wrapper'>
-    <block wx:for='{{reputation.data}}' wx:for-item='item' wx:for-index='idx'>
+    <block wx:for='{{ratings}}' wx:for-item='item' wx:for-index='idx'>
      <template is='rating' data='{{...item}}' />
     </block>
   </view>

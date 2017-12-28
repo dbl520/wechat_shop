@@ -5,7 +5,7 @@ var app = getApp()
 Page({
   data: {
     goodsList: [],
-    isNeedLogistics: 0, // 是否需要物流信息
+    isNeedLogistics: 0,
     allGoodsPrice: 0,
     orderType: "",  //  订单类型,默认是购物车
     addrs: [],
@@ -83,7 +83,6 @@ Page({
     }
     that.setData({
       allGoodsPrice: allGoodsPrice.toFixed(2)
-      // isNeedLogistics: isNeedLogistics
     })
   },
   // 提交订单
